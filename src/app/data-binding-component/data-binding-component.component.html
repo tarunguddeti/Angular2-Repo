@@ -1,0 +1,52 @@
+<p>
+  {{title}}
+</p>
+<div>
+  <p>----------------------------</p>
+  <h1>This is one way binding (Property Binding)</h1>
+  <p>Bound to input value attribute</p>
+  <input [value]="value1">
+  <p [style.color]="color"> This is Bound to paragraph style color property</p>
+  <a [href]="link">This is bound to href property</a>
+  <p> Linkewise You can bind to any built in html property </p>
+  <p> Key to remember that we are setting property fo the DOM element not the attribute</p>
+  <p> For binding to the attributes we should use attr. Below is the example</p>
+  <button [attr.aria-label]="ok">OK</button>
+  <button [style.color]="istrue ? 'blue' : 'red' ">Style Propery Binding</button>
+  <div [class.isSelected]="condition">
+    This is the example of setting the Class property based on the condition. This is called class property binding
+  </div>
+  <p>For grabbing the event details. Below is the example</p>
+  <input [value]="color" (input)="grabbed_value=$event.target.value">
+  <p> Grabbed value from above event is (used $event variable for this) : {{grabbed_value}}</p>
+  <h1> Some cool tricks using the bindings</h1>
+  <img src="C:\Users\Developer1\Desktop\634483-SEO_Audit-512.png" [style.background]="color1" (mouseenter)="color1 = '#EE0'"
+    (mouseleave)="color1 = '#0EE' ">
+    <p>----------------------------</p>
+    <h1>This is two way binding , event binding & one way binding</h1>
+    <label>Enter two values</label>
+    <input [(ngModel)]="value2">
+    <input [(ngModel)]="value3">
+    <button type="button" (click)="add()">Add</button>
+    <p>&nbsp;</p>
+    <label>Appending the two values :</label>
+    <p> {{result}}</p>
+    <p>----------------------------</p>
+    <p>Example of Ng For</p>
+    <ul>
+      <li *ngFor="let movie of Movies, let i= index">
+        <div (click)="selectedMovie(movie) ">
+          {{i}}. {{movie}}
+        </div>
+      </li>
+    </ul>
+    <h1>
+      Got this back from parent component
+    </h1>
+    <p>{{input}}</p>
+    <p>----------------------------</p>
+    <h1>Cool Trick for displaying the json object literally using pipe and string interpolation </h1>
+    <pre>{{jsonobj | json}}</pre>
+    <p> This is very handy while debugging JSON Objects</p>
+    <p>----------------------------</p>
+</div>
